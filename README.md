@@ -3,7 +3,7 @@
 1. 队名：W03KFgNOc
 2. 排名：3
 3. 正确率: 0.75564
-4. 队员：[就是这么甜](https://github.com/yyMoming),[xkwang](https://github.com/xk-wang),[RichardoMu](https://github.com/RichardoMrMu)。
+4. 队员：[yyMoming](https://github.com/yyMoming),[xkwang](https://github.com/xk-wang),[RichardoMu](https://github.com/RichardoMrMu)。
 5. 比赛链接：[人脸情绪识别挑战赛](http://challenge.xfyun.cn/topic/info?type=facial-emotion-recognition)
 # emotion 
 该项目分别训练八个模型并生成csv文件，并进行融合
