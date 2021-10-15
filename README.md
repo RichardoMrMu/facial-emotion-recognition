@@ -1,9 +1,9 @@
-```
-人脸情绪识别挑战赛-第六名-W03KFgNOc-源代码、模型以及说明文档
+
+# 人脸情绪识别挑战赛-第六名-W03KFgNOc-源代码、模型以及说明文档
 队名：W03KFgNOc
 排名：6
-队员：xkwang，RichardoMu，就是这么甜。
-```
+队员：[就是这么甜](https://github.com/yyMoming),[xkwang](https://github.com/xk-wang),[RichardoMu](https://github.com/RichardoMrMu)。
+比赛链接：[人脸情绪识别挑战赛](http://challenge.xfyun.cn/topic/info?type=facial-emotion-recognition)
 # emotion 
 该项目分别训练八个模型并生成csv文件，并进行融合
 ## 构建conda环境
