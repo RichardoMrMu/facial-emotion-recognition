@@ -1,0 +1,48 @@
+import cv2
+import numpy as np
+
+
+def ensure_color(image):
+    if len(image.shape) == 2:
+        return np.dstack([image] * 3)
+    elif image.shape[2] == 1:
+        return np.dstack([image] * 3)
+    return image
+
+
+def ensure_gray(image):
+    try:
+        image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    except cv2.error:
+        pass
+    return image
+
+
+def read_unicode_image(path, gray=1):
+    """read unicode image"""
+    stream = open(path, "rb")
+    byte_array = bytearray(stream.read())
+    numpy_array = np.asarray(byte_array, dtype=np.uint8)
+    image = cv2.imdecode(numpy_array, cv2.IMREAD_COLOR)
+    image = np.array(image)
+    if gray == 0:
+        image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    return image
+model_dict = [
+    ("efficientnet_b2b", "efficientnet_b2b_2021Jul25_17.08"),
+    ("efficientnet_b3b", "efficientnet_b3b_2021Jul25_20.08"),
+    ("cbam_resnet50", "cbam_resnet50_test_2021Jul24_19.18"),
+    ("resmasking_dropout1", "resmasking_dropout1_test_2021Jul25_10.03"),
+    ("resmasking", "resmasking_test_2021Jul26_14.33"),
+    ("resnest269e","tbw_resnest269e_test_2021Aug02_11.39"),
+    ("hrnet","tbw_hrnet_test_2021Aug01_17.13"),
+    ("swin_large_patch4_window7_224","tbw_swin_large_patch4_window7_224_test_2021Aug02_21.36")
+]
+
+model_dict_proba_list = [[0.08232785761356354, 0.04930654913187027, 0.10184092819690704, 0.029565392062067986, 0.019521402195096016, 0.041759587824344635, 0.09779383987188339, 0.056771375238895416], 
+[0.1291164755821228, 0.029554395005106926, 0.12803752720355988, -0.13795021176338196, 0.22557345032691956, -0.05171133205294609, 0.11086512356996536, 0.13994476199150085], 
+[0.10706813633441925, 0.053712692111730576, 0.0787925198674202, 0.06163106486201286, 0.03819401562213898, 0.06048113480210304, 0.06432248651981354, 0.04097476601600647],
+ [0.1744338572025299, -0.06758026778697968, -0.03099026530981064, 0.2183777540922165, 0.023844435811042786, 0.07427442818880081, 0.05771266296505928, 0.12344221770763397], 
+ [0.030621107667684555, 0.08448914438486099, 0.0909309908747673, 0.05843768268823624, 0.07215575873851776, 0.04470197856426239, 0.02205587364733219, 0.05492298677563667], 
+ [0.08402816206216812, 0.1344338059425354, 0.06653434783220291, 0.023686189204454422, 0.12129352241754532, 0.029713517054915428, 0.045858968049287796, 0.020073968917131424],
+  [0.02766808494925499, 0.060835737735033035, 0.024983281269669533, 0.040345896035432816, 0.03199721500277519, 0.055066950619220734, 0.10929088294506073, 0.09599125385284424]]
